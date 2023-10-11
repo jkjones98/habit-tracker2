@@ -1,0 +1,39 @@
+﻿using System;
+using Microsoft.Data.Sqlite;
+
+namespace habit_tracker2;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string connectionString = @"Data Source=habit-Tracker2.db";
+
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            var tableCommand = connection.CreateCommand();
+
+            tableCommand.CommandText = 
+                @"CREATE TABLE IF NOT EXISTS drinking_water
+                (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Date TEXT,
+                    Quantity INTEGER
+
+                )
+                ";
+
+            // Don't return any values, not querying any values
+            tableCommand.ExecuteNonQuery();
+
+            connection.Close();
+
+        }
+    }
+
+    static void GetUserInput()
+    {
+        
+    }
+}

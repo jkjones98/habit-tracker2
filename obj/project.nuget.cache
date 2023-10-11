@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "gMSgb2QtPUtkXHYld6Olnx8CjtOSPRF916bs+3ESv6GwzSAu7gph5cfN5pRDqd0YqPj3epNkSOHhY/+0PnDr2Q==",
+  "success": true,
+  "projectFilePath": "/Users/jj/VSCodeProjects/Habit.Tracker/habit-tracker2/habit-tracker2.csproj",
+  "expectedPackageFiles": [
+    "/Users/jj/.nuget/packages/microsoft.data.sqlite/7.0.10/microsoft.data.sqlite.7.0.10.nupkg.sha512",
+    "/Users/jj/.nuget/packages/microsoft.data.sqlite.core/7.0.10/microsoft.data.sqlite.core.7.0.10.nupkg.sha512",
+    "/Users/jj/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.4/sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
+    "/Users/jj/.nuget/packages/sqlitepclraw.core/2.1.4/sqlitepclraw.core.2.1.4.nupkg.sha512",
+    "/Users/jj/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.4/sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
+    "/Users/jj/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.4/sqlitepclraw.provider.e_sqlite3.2.1.4.nupkg.sha512",
+    "/Users/jj/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}
