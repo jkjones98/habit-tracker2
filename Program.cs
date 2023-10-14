@@ -5,8 +5,7 @@ using EditTableOperations;
 namespace habit_tracker2;
 
 class Program
-{
-    static void Main(string[] args)
+{    static void Main(string[] args)
     {
         string connectionString = @"Data Source=habit-Tracker2.db";
 
@@ -26,6 +25,7 @@ class Program
                 ";
 
             // Don't return any values, not querying any values
+            
             tableCommand.ExecuteNonQuery();
 
             connection.Close();
@@ -37,6 +37,7 @@ class Program
 
     static void GetUserInput()
     {
+        Console.Clear();
         Operations editTable = new Operations();
 
         bool closeApp = false;
@@ -49,6 +50,8 @@ class Program
             Console.WriteLine("Enter 2 to Insert Record");
             Console.WriteLine("Enter 3 to Delete Record");
             Console.WriteLine("Enter 4 to Update Record ");
+
+            Console.WriteLine("--------------------------------------------------");
 
             string userInput = Console.ReadLine();
 
@@ -76,6 +79,7 @@ class Program
 
             if(cleanUserInput == 0)
                 closeApp = true;
+                
         }
 
         
