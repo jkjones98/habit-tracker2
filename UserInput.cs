@@ -6,7 +6,7 @@ public class ClassUserInput
 {
     public void GetUserInput()
     {
-        Console.Clear();
+        Console.WriteLine("\n\n");
         Operations editTable = new Operations();
 
         bool closeApp = false;
