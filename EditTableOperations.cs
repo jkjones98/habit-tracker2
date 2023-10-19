@@ -22,8 +22,6 @@ public class Operations
         switch (op)
         {
             case 0:
-                // Not even sure this is necessary but funny so keeping it
-
                 Console.Clear();
                 Console.WriteLine("Closing application");
                 break;
@@ -40,8 +38,6 @@ public class Operations
                 deleteRecord.DelRecMethod();
                 break;
             case 4:
-                // Need to look up code for updating an existing record
-                Console.WriteLine("Update record switch case");
                 Update updateDatabase = new Update();
                 updateDatabase.UpdateRecMethod();
                 break;

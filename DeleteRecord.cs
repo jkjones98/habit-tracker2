@@ -1,6 +1,7 @@
 using Microsoft.Data.Sqlite;
 using UserInput;
 using ViewAllRecords;
+using NumberInput;
 
 namespace DeleteRecord;
 
@@ -8,17 +9,21 @@ public class Delete
 {
     ClassUserInput rtnToMainMenu = new ClassUserInput();
     ViewAll getRecords = new ViewAll();
+    GetNumberInput getInput = new GetNumberInput();
     string connectionString = @"Data Source=habit-Tracker2.db";
     public void DelRecMethod()
     {
         Console.Clear();
+        // Show database
         getRecords.ViewAllMethod();
-        var recordId = GetNumberInput("\n\nPlease enter the ID of the record you would like to remove from the database\n\n");
-    
+        // Get Id of record to update
+        var recordId = getInput.GetNumInput("\n\nPlease enter the ID of the record you would like to remove from the database\n\n");
+        // Show record and ask what they would like to update? enter date or quantity/1 or 2
         using(var connection = new SqliteConnection(connectionString))
         {
-            // Open connection
+            
             connection.Open();
+
             var tblCommand = connection.CreateCommand();
             tblCommand.CommandText = $"DELETE from drinking_water WHERE Id = '{recordId}'";
 
@@ -35,17 +40,5 @@ public class Delete
 
         Console.WriteLine($"\n\nRecord with Id {recordId} has been deleted. \n\n");
         rtnToMainMenu.GetUserInput();
-    }
-
-    internal int GetNumberInput(string message)
-    {
-        Console.WriteLine(message);
-        string recordId = Console.ReadLine();
-        
-        if(recordId == "0") rtnToMainMenu.GetUserInput();
-
-        int cleanInput = Convert.ToInt32(recordId);
-
-        return cleanInput;
     }
 }

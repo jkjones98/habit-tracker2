@@ -1,16 +1,20 @@
 using Microsoft.Data.Sqlite;
 using UserInput;
+using NumberInput;
+using DateInput;
 
 namespace Insert;
 public class InsertRecord
 {
+    UserDateInput dateInput = new UserDateInput();
+    GetNumberInput getNum = new GetNumberInput();
     ClassUserInput rtnToMainMenu = new ClassUserInput();
     public void InsertMethod()
     {
         string connectionString = @"Data Source=habit-Tracker2.db";
 
-        string date = GetDateInput();
-        int quantity = GetQuantityInput();
+        string date = dateInput.getDate("\nEnter the date using the following format DD-MM-YYYY. Enter 0 to return to the main menu.\n");
+        int quantity = getNum.GetNumInput("\nEnter the number of litres you have drank today, no decimals. Enter 0 to return to the main menu\n");
 
         using (var connection = new SqliteConnection(connectionString))
         {
@@ -24,29 +28,5 @@ public class InsertRecord
 
             connection.Close();
         }
-    }
-
-    internal string GetDateInput()
-    {
-        Console.WriteLine("\n\nInsert the date using the following format DD-MM-YYYY. Enter 0 to return to the main menu.");
-
-        string dateInput = Console.ReadLine();
-
-        if(dateInput == "0") rtnToMainMenu.GetUserInput();
-
-        return dateInput;
-    }
-
-    internal int GetQuantityInput()
-    {
-        Console.WriteLine("\n\nEnter the number of litres you have drank today, no decimals. Enter 0 to return to the main menu");
-
-        string litresInput = Console.ReadLine();
-        
-        if(litresInput == "0") rtnToMainMenu.GetUserInput();
-
-        int cleanInput = Convert.ToInt32(litresInput);
-
-        return cleanInput;
     }
 }
