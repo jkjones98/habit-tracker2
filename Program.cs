@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 using UserInput;
 
 namespace habit_tracker2;

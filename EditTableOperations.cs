@@ -1,10 +1,7 @@
-using System.Collections;
-using habit_tracker2;
 using Insert;
 using UpdateRecord;
 using ViewAllRecords;
 using DeleteRecord;
-using Microsoft.Data.Sqlite;
 
 namespace EditTableOperations;
 
@@ -24,8 +21,10 @@ public class Operations
             case 0:
                 Console.Clear();
                 Console.WriteLine("Closing application");
+                Environment.Exit(0);
                 break;
             case 1:
+                Console.Clear();
                 ViewAll viewRecords = new ViewAll();
                 viewRecords.ViewAllMethod();
                 break;
@@ -42,6 +41,7 @@ public class Operations
                 updateDatabase.UpdateRecMethod();
                 break;
             default:
+                Console.WriteLine("\nInvalid selection please enter a number between 0 and 4.\n");
                 break;
         }
     }

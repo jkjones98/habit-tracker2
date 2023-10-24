@@ -1,5 +1,4 @@
 using Microsoft.Data.Sqlite;
-using System.Collections;
 using System.Globalization;
 
 namespace DisplayRecords;
@@ -8,7 +7,7 @@ public class AllRecords
 {
     public void DisplayRecs()
     {
-        Console.Clear();
+        
         string connectionString = @"Data Source=habit-Tracker2.db";
 
         using (var connection = new SqliteConnection(connectionString))
@@ -35,7 +34,7 @@ public class AllRecords
                         {
                             // number in brackets represents the index of the column id(0), date(1), quantity(2)
                             Id = reader.GetInt32(0),
-                            Date = DateTime.ParseExact(reader.GetString(1), "dd-MM-yyyy", new CultureInfo("en-US")),
+                            Date = DateTime.ParseExact(reader.GetString(1), "dd-MM-yy", new CultureInfo("en-US")),
                             Quantity = reader.GetInt32(2)
                         }); ;
                     
@@ -50,7 +49,7 @@ public class AllRecords
             Console.WriteLine("------------------------------------\n");
             foreach(var dw in tableData)
             {
-                Console.WriteLine($"{dw.Id} - {dw.Date.ToString("dd-MM-yyyy")} - Quantity: {dw.Quantity}");
+                Console.WriteLine($"{dw.Id} - {dw.Date.ToString("dd-MM-yy")} - Quantity: {dw.Quantity}");
             }
             Console.WriteLine("------------------------------------\n");
         }

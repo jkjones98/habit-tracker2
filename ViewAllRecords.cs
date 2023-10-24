@@ -1,7 +1,5 @@
-using Microsoft.Data.Sqlite;
 using UserInput;
 using DisplayRecords;
-using System.Globalization;
 
 namespace ViewAllRecords;
 

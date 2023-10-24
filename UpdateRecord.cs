@@ -15,7 +15,6 @@ public class Update
     string connectionString = @"Data Source=habit-Tracker2.db";
     public void UpdateRecMethod()
     {
-        Console.Clear();
         // Show database
         getRecords.DisplayRecs();
         // Get Id of record to update

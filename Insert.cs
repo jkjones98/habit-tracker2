@@ -13,7 +13,7 @@ public class InsertRecord
     {
         string connectionString = @"Data Source=habit-Tracker2.db";
 
-        string date = dateInput.getDate("\nEnter the date using the following format DD-MM-YYYY. Enter 0 to return to the main menu.\n");
+        string date = dateInput.getDate("\nEnter the date using the following format DD-MM-YY. Enter 0 to return to the main menu.\n");
         int quantity = getNum.GetNumInput("\nEnter the number of litres you have drank today, no decimals. Enter 0 to return to the main menu\n");
 
         using (var connection = new SqliteConnection(connectionString))

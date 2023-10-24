@@ -35,10 +35,7 @@ public class ClassUserInput
             // Check to see if the number is greater than 4(valid selection)
             if (cleanUserInput > 4)
             {
-                while (cleanUserInput > 4)
-                {
-                    Console.WriteLine("Please choose an option between 0 and 4");
-                }
+                Console.WriteLine("\nInvalid selection please choose an option between 0 and 4. if statement version\n");
             }
             else
             {
