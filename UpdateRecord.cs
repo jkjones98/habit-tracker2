@@ -3,6 +3,7 @@ using UserInput;
 using NumberInput;
 using DisplayRecords;
 using DateInput;
+using ColumnName;
 
 namespace UpdateRecord;
 
@@ -12,9 +13,12 @@ public class Update
     UserDateInput getDate = new UserDateInput();
     GetNumberInput getNum = new GetNumberInput();
     ClassUserInput mainMenu = new ClassUserInput();
+    GetColumnName columnName = new GetColumnName();
     string connectionString = @"Data Source=habit-Tracker2.db";
     public void UpdateRecMethod()
     {
+        string currentColumnName = columnName.GetColName();
+
         // Show database
         getRecords.DisplayRecs();
         // Get Id of record to update
@@ -42,10 +46,10 @@ public class Update
             // Get the new date
             string date = getDate.getDate("\nEnter the updated date with the following format 'DD-MM-YYYY'\n");
             // Get new number of litres drank
-            int litresDrank = getNum.GetNumInput("\nEnter number litres(no decimals)\n");
+            int quantity = getNum.GetNumInput("\nEnter quantity for chosen measurement\n");
 
             // Update the date and quantity where the Id = selected by user
-            tblCmd.CommandText = $"UPDATE drinking_water SET date = '{date}', quantity = {litresDrank} WHERE Id = {recordId}";
+            tblCmd.CommandText = $"UPDATE drinking_water SET date = '{date}', {currentColumnName} = {quantity} WHERE Id = {recordId}";
 
             tblCmd.ExecuteNonQuery();
             connection.Close();

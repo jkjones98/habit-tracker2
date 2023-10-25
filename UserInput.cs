@@ -19,6 +19,8 @@ public class ClassUserInput
             Console.WriteLine("Enter 2 to Insert Record");
             Console.WriteLine("Enter 3 to Delete Record");
             Console.WriteLine("Enter 4 to Update Record ");
+            Console.WriteLine("Enter 5 to Change unit of measurement ");
+            Console.WriteLine("Enter 6 to View a report ");
 
             Console.WriteLine("--------------------------------------------------");
 
@@ -33,7 +35,7 @@ public class ClassUserInput
             }
 
             // Check to see if the number is greater than 4(valid selection)
-            if (cleanUserInput > 4)
+            if (cleanUserInput > 6)
             {
                 Console.WriteLine("\nInvalid selection please choose an option between 0 and 4. if statement version\n");
             }

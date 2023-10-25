@@ -1,12 +1,17 @@
 using Microsoft.Data.Sqlite;
+using ColumnName;
 using System.Globalization;
 
 namespace DisplayRecords;
 
 public class AllRecords
 {
+    GetColumnName currentName = new GetColumnName();
     public void DisplayRecs()
     {
+        string currentColumnName = currentName.GetColName();
+        
+        
         
         string connectionString = @"Data Source=habit-Tracker2.db";
 
@@ -35,9 +40,8 @@ public class AllRecords
                             // number in brackets represents the index of the column id(0), date(1), quantity(2)
                             Id = reader.GetInt32(0),
                             Date = DateTime.ParseExact(reader.GetString(1), "dd-MM-yy", new CultureInfo("en-US")),
-                            Quantity = reader.GetInt32(2)
-                        }); ;
-                    
+                            Unit = reader.GetInt32(2)
+                        }); 
                 }
             }
             else
@@ -49,7 +53,7 @@ public class AllRecords
             Console.WriteLine("------------------------------------\n");
             foreach(var dw in tableData)
             {
-                Console.WriteLine($"{dw.Id} - {dw.Date.ToString("dd-MM-yy")} - Quantity: {dw.Quantity}");
+                Console.WriteLine($"{dw.Id} - {dw.Date.ToString("dd-MM-yy")} - {currentColumnName}: {dw.Unit}");
             }
             Console.WriteLine("------------------------------------\n");
         }
@@ -62,5 +66,5 @@ public class DrinkingWater
 
     public DateTime Date {get; set;}
 
-    public int Quantity {get; set;}
+    public int  Unit {get; set;}
 }
